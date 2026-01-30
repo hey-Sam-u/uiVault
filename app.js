@@ -8,7 +8,8 @@ const app = express();
 const adminRoutes = require("./routes/admin");
 
 // Static files
-app.use("/pages", express.static(path.join(__dirname, "pages")));
+// app.use("/pages", express.static(path.join(__dirname, "pages")));
+app.use(express.static(path.join(__dirname, "pages")));
 app.use("/assets", express.static(path.join(__dirname, "assets")));
 
 // Body parser
