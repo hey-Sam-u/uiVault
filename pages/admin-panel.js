@@ -8,7 +8,7 @@
 
 //session check and redirect to my-comps. by mycomponent btn 
 document.getElementById("myCompsBtn").onclick = () => {
-  window.location.href = "/pages/my-comps.html";
+  window.location.href = "/my-comps.html";
 };
 
 

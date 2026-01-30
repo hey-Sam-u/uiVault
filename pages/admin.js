@@ -22,6 +22,6 @@ form.addEventListener("submit", async (e) => {
   }
 
   // success
-  window.location.href = "/pages/admin-panel.html";
+  window.location.href = "/admin-panel.html";
 });
 
