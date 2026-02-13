@@ -26,8 +26,6 @@ fetch("/admin/public/components")
     console.error("Component load error:", err);
   });
 
-
-
 /* =======================
    RENDER COMPONENTS
 ======================= */
@@ -56,7 +54,7 @@ function renderComponents(list) {
     <!DOCTYPE html>
     <html>
     <head>
-    <script src="https://cdn.tailwindcss.com"></script>
+   
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
       <style>
@@ -90,7 +88,7 @@ function renderComponents(list) {
         <iframe
           class="component-preview"
           sandbox="allow-scripts"
-          
+          loading="lazy"
           srcdoc="${iframeHTML.replace(/"/g, "&quot;")}"
         ></iframe>
         <div class="preview-loader">
