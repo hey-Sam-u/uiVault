@@ -16,42 +16,17 @@ const grid = document.getElementById("componentGrid");
 /* =======================
    FETCH COMPONENTS
 ======================= */
-// fetch("/admin/public/components")
-//   .then((res) => res.json())
-//   .then((components) => {
-//     ALL_COMPONENTS = components;
-//     renderComponents(components); // default = ALL
-//   })
-//   .catch((err) => {
-//     console.error("Component load error:", err);
-//   });
-
-// 1️⃣ Try loading from cache first
-const cached = localStorage.getItem("components");
-
-if (cached) {
-  try {
-    ALL_COMPONENTS = JSON.parse(cached);
-    renderComponents(ALL_COMPONENTS);
-  } catch (e) {
-    console.log("Cache parse error");
-  }
-}
-
-// 2️⃣ Always fetch fresh data
 fetch("/admin/public/components")
   .then((res) => res.json())
   .then((components) => {
     ALL_COMPONENTS = components;
-
-    // Save to cache
-    localStorage.setItem("components", JSON.stringify(components));
-
-    renderComponents(components);
+    renderComponents(components); // default = ALL
   })
   .catch((err) => {
     console.error("Component load error:", err);
   });
+
+
 
 /* =======================
    RENDER COMPONENTS
@@ -84,9 +59,6 @@ function renderComponents(list) {
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
       <style>
         html, body {
           width: 100%;
@@ -118,7 +90,7 @@ function renderComponents(list) {
         <iframe
           class="component-preview"
           sandbox="allow-scripts"
-          loading="lazy"
+          
           srcdoc="${iframeHTML.replace(/"/g, "&quot;")}"
         ></iframe>
         <div class="preview-loader">
